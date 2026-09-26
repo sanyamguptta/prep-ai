@@ -10,7 +10,7 @@ app.use(express.json());
 app.use(cookieParser());
 // for handling cross-origin request
 app.use(cors({
-    origin: 'http://localhost:5173',
+    origin: process.env.FRONTEND_URL || 'http://localhost:5173',
     // for handling data with cookies
     credentials: true,
 }));
