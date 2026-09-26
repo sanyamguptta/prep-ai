@@ -54,14 +54,22 @@ export const useAuth = () => {
     }
 
     useEffect(() => {
+
       // function for calling getMe api for for setting user state on 1st render
       const getAndSetUser = async () => {
-        // calling getMe api
-        const data = await getMe();
-        // setting data into the user state
-        setUser(data.user);
-        // setting loading state as false again
-        setLoading(false);
+        try {
+            // calling getMe api
+            const data = await getMe();
+            // setting data into the user state
+            setUser(data.user);
+        }
+        catch(err) {
+            setUser(null);
+        }
+        finally {
+            // setting loading state as false again
+            setLoading(false);
+        }
       };
 
       // this function only calls on 1st render

@@ -92,6 +92,10 @@ const interviewReportSchema = new mongoose.Schema({
         max: 100,
     },
 
+    title: {
+        type: String,
+        required: [true, 'Job title is required'],
+    },
     technicalQuestions: [technicalQuestionSchema],
     behavioralQuestions: [behavioralQuestionSchema],
     skillGaps: [skillGapSchema],

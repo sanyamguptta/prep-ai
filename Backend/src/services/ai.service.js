@@ -12,6 +12,9 @@ const ai = new GoogleGenAI({
 // schema for generating structural output
 const interviewReportSchema = z.object({
     matchScore: z.number().describe("A score between 0 and 100 indicating how well the candidate's profile matches the job description."),
+
+    title: z.string().describe("The title of the job for which the interview report is generated."),
+
     technicalQuestions: z.array(z.object({
         question: z.string().describe("The Technical question can be asked in the interview"),
         intention: z.string().describe("The intention of the interviewer behind asking the question"),
@@ -34,10 +37,6 @@ const interviewReportSchema = z.object({
         focus: z.string().describe("The main focus of this day in the preparation plan. ie; data structures, system design, mock interviews."),
         tasks: z.array(z.string()).describe("List of tasks to be done on this day to follow the preparation plan, e.g. read a specific book or article, solve a set of problems, watch a video etc.")
     }))
-
-
-
-
 })
 
 // function for generating report

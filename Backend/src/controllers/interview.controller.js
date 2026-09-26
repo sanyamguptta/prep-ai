@@ -4,6 +4,9 @@ const { generateInterviewReport } = require('../services/ai.service.js');
 const interviewReportModel = require('../models/interviewReport.model.js');
 
 
+/**
+ * @description controller to generate interview report based on the 3 input fields provided by the user
+ */
 const generateInterviewReportController = async (req, res) => {
 
     // fecthing all 3 fields from frontend
@@ -71,6 +74,57 @@ const generateInterviewReportController = async (req, res) => {
 
 }
 
+/**
+ * @description controller to get interview report by interviewId
+ */
+const getInterviewReportById = async (req, res) => {
+
+    const { interviewId } = req.params;
+    
+    const interviewReport = await interviewReportModel.findOne({
+        _id: interviewId,
+        user: req.user.id,
+    })
+
+    if(!interviewReport) {
+        return res.status(404).json({
+            message: 'Interview report not found',
+            status: false,
+        })
+    }
+
+    return res.status(200).json({
+        message: 'Interview report fetched successfully!',
+        status: true,
+        interviewReport,
+    })
+}
+
+
+/**
+ * @description controller to fetch all interview report of the logged in user
+ */
+const getAllInterviewReports = async (req, res) => {
+
+    const interviewReports = await interviewReportModel.find({
+        user: req.user.id,
+    })
+    .sort({ createdAt: -1})
+    .select("-resume -selfDescription -jobDescription -v -technicalQuestions -behavioralQuestions -skillGaps -preparationPlan");
+
+    return res.status(200).json({
+        message: 'All interview reports are fetched successfully',
+        status: true,
+        interviewReports,
+    })
+}
+
+
+
+
+
 module.exports = {
     generateInterviewReportController,
+    getInterviewReportById,
+    getAllInterviewReports,
 }
