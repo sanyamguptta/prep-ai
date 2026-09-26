@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router';
 import { useInterview } from '../hooks/useInterview';
-import '../styles/InterviewReport.css';
+import '../styles/interviewReport.css';
 
 
 // Helper badge for skill-gap severity

@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router';
 import { useInterview } from '../hooks/useInterview';
-import '../styles/Interview.css';
+import '../styles/interview.css';
 
 const Interview = () => {
   const { loading, generateReport, reports, getAllReports } = useInterview();
