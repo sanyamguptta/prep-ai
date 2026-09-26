@@ -68,7 +68,7 @@ const Interview = () => {
       <header className="home-header">
         <div className="home-logo-area">
           <div className="home-logo-icon">✦</div>
-          <span className="home-logo-text">InterviewAI</span>
+          <span className="home-logo-text">prepAi</span>
         </div>
       </header>
 

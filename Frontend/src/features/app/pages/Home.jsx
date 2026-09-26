@@ -13,7 +13,7 @@ const Home = () => {
       <header className="landing-header">
         <div className="landing-logo-area">
           <div className="landing-logo-icon">✦</div>
-          <span className="landing-logo-text">InterviewAI</span>
+          <span className="landing-logo-text">prepAi</span>
         </div>
         <div className="landing-header-right">
           {user && (
@@ -39,7 +39,7 @@ const Home = () => {
         </div>
 
         <h1 className="landing-title">
-          Ace Your Next Interview with <span className="landing-title-highlight">InterviewAI</span>
+          Ace Your Next Interview with <span className="landing-title-highlight">prepAi</span>
         </h1>
 
         <p className="landing-subtitle">

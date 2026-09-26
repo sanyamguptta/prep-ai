@@ -98,7 +98,7 @@ const InterviewReport = () => {
       <header className="interview-header">
         <div className="interview-logo-area" onClick={() => navigate('/interview')}>
           <div className="interview-logo-icon">✦</div>
-          <span className="interview-logo-text">InterviewAI</span>
+          <span className="interview-logo-text">prepAi</span>
         </div>
         <div className="interview-header-right">
           <button className="interview-new-report-btn" onClick={() => navigate('/interview')}>
