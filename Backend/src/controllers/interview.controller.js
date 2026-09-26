@@ -154,6 +154,7 @@ const generatePdf = async (req, res) => {
         console.error(error);
         console.error("PDF GENERATION ERROR:", error);
         console.error("PDF GENERATION ERROR:", error);
+        console.error("PDF GENERATION ERROR:", error);
      
         return res.status(500).json({
            success: false,
