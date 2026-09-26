@@ -111,14 +111,17 @@ const styles = {
     minHeight: '100vh',
     backgroundColor: '#f9fafa',
     fontFamily: 'system-ui, -apple-system, sans-serif',
+    padding: '20px 16px',
+    boxSizing: 'border-box',
   },
   card: {
     backgroundColor: '#ffffff',
-    padding: '32px',
+    padding: '32px 24px',
     borderRadius: '8px',
     boxShadow: '0 1px 3px rgba(0, 0, 0, 0.1)',
     width: '100%',
     maxWidth: '400px',
+    boxSizing: 'border-box',
   },
   title: {
     marginTop: 0,

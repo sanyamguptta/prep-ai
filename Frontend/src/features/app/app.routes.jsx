@@ -2,23 +2,24 @@ import { createBrowserRouter } from 'react-router';
 import Register from '../auth/pages/Register';
 import Login from '../auth/pages/Login';
 import Protected from '../auth/components/Protected';
-import Home from '../interview/pages/Home';
+import Home from './pages/Home';
+import Interview from '../interview/pages/Interview';
 import InterviewReport from '../interview/pages/InterviewReport';
 
 export const router = createBrowserRouter([
-    // PROTECTED ROUTE
+    // PROTECTED ROOT / HOME ROUTE
     {
         path: '/',
-        element: <Protected> <h1> Home Page </h1> </Protected>
+        element: <Protected> <Home /> </Protected>
     },
     // INTERVIEW ROUTES (protected)
     {
         path: '/interview',
-        element: <Protected><Home/></Protected>
+        element: <Protected> <Interview /></Protected>
     },
     {
         path: '/interview/report/:interviewId',
-        element: <Protected><InterviewReport /></Protected>
+        element: <Protected> <InterviewReport /> </Protected>
     },
     // NORMAL ROUTES
     {

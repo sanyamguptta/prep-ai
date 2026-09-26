@@ -1,9 +1,9 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router';
 import { useInterview } from '../hooks/useInterview';
-import '../styles/Home.css';
+import '../styles/Interview.css';
 
-const Home = () => {
+const Interview = () => {
   const { loading, generateReport, reports, getAllReports } = useInterview();
   const navigate = useNavigate();
 
@@ -280,4 +280,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Interview;
