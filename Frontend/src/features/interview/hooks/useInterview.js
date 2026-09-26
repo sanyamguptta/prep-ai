@@ -1,4 +1,4 @@
-import { generateInterviewReport, getInterviewReportById, getAllInterviewReports } from "../services/interview.api";
+import { generateInterviewReport, getInterviewReportById, getAllInterviewReports, generateResumePdf } from "../services/interview.api";
 import { useContext } from "react";
 import { InterviewContext } from "../interview.context";
 
@@ -33,6 +33,7 @@ export const useInterview = () => {
         try {
             const response = await getInterviewReportById(interviewId);
             setReport(response.interviewReport);
+            return response.interviewReport;
         }
         catch(err) {
             console.log(err);
@@ -44,6 +45,7 @@ export const useInterview = () => {
 
     const getAllReports = async () => {
 
+        setLoading(true);
         try {
             const response = await getAllInterviewReports();
             setReports(response.interviewReports || response.getAllInterviewReports || []);
@@ -52,8 +54,30 @@ export const useInterview = () => {
         catch(err) {
             console.log(err);
         }
+        finally {
+            setLoading(false);
+        }
     }
 
+    const getResumePdf = async (interviewReportId) => {
+
+        setLoading(true);
+        try {
+            const response = await generateResumePdf({ interviewReportId });
+            const url = window.URL.createObjectURL(new Blob([ response ], { type: "application/pdf" }))
+            const link = document.createElement("a")
+            link.href = url
+            link.setAttribute("download", `resume_${interviewReportId}.pdf`)
+            document.body.appendChild(link)
+            link.click()
+        }
+        catch(err) {
+            console.log(err);
+        }
+        finally {
+            setLoading(false);
+        }
+    }
 
     return {
         loading,
@@ -62,6 +86,7 @@ export const useInterview = () => {
         generateReport,
         getReportById,
         getAllReports,
+        getResumePdf,
     }
 
 }
